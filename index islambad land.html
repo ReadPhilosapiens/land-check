@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Land Check">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#111418">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Land Check</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADWUlEQVR42u3dy03rQBiAUWKlASQWVJYW6IJFukgLVMkCCV3lkoBje/w/zreDBZJnTsaP2Obw/PL6JP3UZAgEh+AQHIJDcAgOwSE4BIfgkOAQHIJDcAgOwSE4BIfgEBwSHIJDcAgOjexoCL56+3j/98fL6WxMDh6HvGKBCBz3TFDSF8csFp2J9MLxMIueRFrgWMVEQyXFcWzEogmRmjgGmOigpBqOXVhUJVIHx+4s6hFJj2MtE1fTudGfhSM3C0Ry4xg8Z22JZMKx+yR1U5IDR6hZ6UMkOo7IF7zLX4wPiiPRp7PwQhIOR9KxLkkkCo4yg1tJyf44Sn7mamzUnjjKH/Zn38AdcDS8ppR0k4fiaH41Ot3mj145Fg5QgW87E41AjudWKt0k8b0toe4xSHnMUf4+zcijcaw0dlq3HZ6V9aRhlnHzILWC4bB4pBgxK4eC4XCYmWLErByKhMOykWXcrBy6WayLYM5iQq2sVg7BITgEh+AQHIJDcAgOwSE4JDhGlv37Zzi2lZHaBxybrxlvH+9JicAxaG+S0QccDkHgiCEg1y4Gjh3Whiw+4Nhhr5Hlbkg4yICDDDicg8CRsnQPXsBhhwIHGXCQAQcZcJABhxNXOJy4wmHZqPIuCTjIKI1jwHFAQxkVcAy4j7enjFK7lY18tJWRHsfVzK3uo/mLD6cyMvadzpKvupsqyVjXR+cdSuVT2eU3eZORFcfWN3mTkRXHrCl/wAcZiXHMnZKNMHV42XLK3cpGPryxv8gB6abrh2Uj/dnKuj7sUKqdyl5O51lTdUsAGQVxPDBh/zsgozKOJT7IuNOxzJZcTue/z/Tc49Oe/yWo1OVz/+gJjtE+2por+MXbunPZeTWq+a3sWjPafD9V9u7z5fPqCKbyowlLZpeMp/LPrcy9hEpGIxwmG441fZDUDscfZ52MpjjuzP3X78lojeNHAWTc6thwmzmwcggOwSE4BIfgEByCQ82KdRHM06pWDsFxI1evs4yblUPBcFg8UozY1GpryUizW+Ej+ChNbbecjF87PL+8RhgFVzgCfmyi4JCzFcEhOASH4JDgEByCQ3AIDsEhOASH4BAcEhyCQ3AIDsEhOASH4BAcgkNwSHAIDsEhOASH4BAcgkNwCA4JDsGhxX0CV+hmgPWHdDQAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADWUlEQVR42u3dy03rQBiAUWKlASQWVJYW6IJFukgLVMkCCV3lkoBje/w/zreDBZJnTsaP2Obw/PL6JP3UZAgEh+AQHIJDcAgOwSE4BIfgkOAQHIJDcAgOwSE4BIfgEBwSHIJDcAgOjexoCL56+3j/98fL6WxMDh6HvGKBCBz3TFDSF8csFp2J9MLxMIueRFrgWMVEQyXFcWzEogmRmjgGmOigpBqOXVhUJVIHx+4s6hFJj2MtE1fTudGfhSM3C0Ry4xg8Z22JZMKx+yR1U5IDR6hZ6UMkOo7IF7zLX4wPiiPRp7PwQhIOR9KxLkkkCo4yg1tJyf44Sn7mamzUnjjKH/Zn38AdcDS8ppR0k4fiaH41Ot3mj145Fg5QgW87E41AjudWKt0k8b0toe4xSHnMUf4+zcijcaw0dlq3HZ6V9aRhlnHzILWC4bB4pBgxK4eC4XCYmWLErByKhMOykWXcrBy6WayLYM5iQq2sVg7BITgEh+AQHIJDcAgOwSE4JDhGlv37Zzi2lZHaBxybrxlvH+9JicAxaG+S0QccDkHgiCEg1y4Gjh3Whiw+4Nhhr5Hlbkg4yICDDDicg8CRsnQPXsBhhwIHGXCQAQcZcJABhxNXOJy4wmHZqPIuCTjIKI1jwHFAQxkVcAy4j7enjFK7lY18tJWRHsfVzK3uo/mLD6cyMvadzpKvupsqyVjXR+cdSuVT2eU3eZORFcfWN3mTkRXHrCl/wAcZiXHMnZKNMHV42XLK3cpGPryxv8gB6abrh2Uj/dnKuj7sUKqdyl5O51lTdUsAGQVxPDBh/zsgozKOJT7IuNOxzJZcTue/z/Tc49Oe/yWo1OVz/+gJjtE+2por+MXbunPZeTWq+a3sWjPafD9V9u7z5fPqCKbyowlLZpeMp/LPrcy9hEpGIxwmG441fZDUDscfZ52MpjjuzP3X78lojeNHAWTc6thwmzmwcggOwSE4BIfgEByCQ82KdRHM06pWDsFxI1evs4yblUPBcFg8UozY1GpryUizW+Ej+ChNbbecjF87PL+8RhgFVzgCfmyi4JCzFcEhOASH4JDgEByCQ3AIDsEhOASH4BAcEhyCQ3AIDsEhOASH4BAcgkNwSHAIDsEhOASH4BAcgkNwCA4JDsGhxX0CV+hmgPWHdDQAAAAASUVORK5CYII=">
+<style>
+:root{--bg:#111418;--card:#1a1e24;--line:#2a3038;--tx:#e8eaed;--mu:#8b939c;--ok:#78be96;--warn:#e0b25c;--bad:#e07a6e;--r:16px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body{padding:calc(env(safe-area-inset-top) + 12px) 16px calc(env(safe-area-inset-bottom) + 88px);min-height:100vh;overscroll-behavior:none}
+h1{font-size:22px;margin:4px 0 16px;font-weight:600}
+h2{font-size:14px;color:var(--mu);font-weight:500;margin:22px 0 8px;text-transform:uppercase;letter-spacing:.04em}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.scr{display:none}.scr.on{display:block}
+.card{background:var(--card);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.big{font-size:64px;font-weight:600;line-height:1;margin:6px 0}
+.mu{color:var(--mu);font-size:15px}
+.main{display:block;width:100%;min-height:72px;border-radius:var(--r);background:var(--ok);color:#0d1a12;font-size:21px;font-weight:600;margin:16px 0}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.btn{min-height:56px;border-radius:14px;background:var(--line);font-size:17px;padding:0 12px}
+.btn.g{background:var(--ok);color:#0d1a12;font-weight:600}
+.btn.s{background:transparent;border:1px solid var(--line);color:var(--mu);min-height:48px;font-size:15px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:rgba(17,20,24,.96);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;min-height:60px;background:none;color:var(--mu);font-size:15px}
+nav button.on{color:var(--tx);font-weight:600}
+.sheet{position:fixed;inset:0;background:var(--bg);z-index:9;overflow:auto;padding:calc(env(safe-area-inset-top) + 12px) 16px calc(env(safe-area-inset-bottom) + 24px);display:none}
+.sheet.on{display:block}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.x{min-width:56px;min-height:48px;background:var(--line);border-radius:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid button{min-height:52px;background:var(--card);border-radius:12px;padding:6px 10px;text-align:left;font-size:16px}
+.grid button i{display:block;font-style:normal;font-size:12px;color:var(--mu)}
+input[type=search]{width:100%;min-height:48px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font-size:17px;padding:0 14px;margin-bottom:4px}
+.v{font-size:34px;font-weight:700;margin:4px 0 2px}
+.v.ok{color:var(--ok)}.v.warn{color:var(--warn)}.v.bad{color:var(--bad)}.v.n{color:var(--tx)}
+.ln{padding:6px 0;border-top:1px solid var(--line)}.ln:first-of-type{border:0}
+.it{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.it:first-child{border:0}
+.tag{font-size:13px;padding:4px 9px;border-radius:99px;background:var(--line);white-space:nowrap}
+.tag.ok{color:var(--ok)}.tag.warn{color:var(--warn)}.tag.bad{color:var(--bad)}
+.sc{font-weight:600;font-variant-numeric:tabular-nums}
+.d{margin:16px 0 4px;color:var(--mu);font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 76px);transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:99px;font-size:15px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.toast.on{opacity:1}
+.link{background:none;color:var(--mu);text-decoration:underline;font-size:14px;min-height:44px;padding:0}
+</style>
+</head>
+<body>
+
+<section class="scr on" id="today">
+  <h1>Land Check</h1>
+  <div class="card">
+    <div class="mu">Risky deals dodged</div>
+    <div class="big" id="dodged">0</div>
+    <div class="mu" id="week"></div>
+  </div>
+  <button class="main" id="go">Check land</button>
+  <div id="ask"></div>
+  <div id="sampleNote"></div>
+</section>
+
+<section class="scr" id="history">
+  <h1>History</h1>
+  <div class="card" id="hist"></div>
+</section>
+
+<section class="scr" id="numbers">
+  <h1>Numbers</h1>
+  <div class="mu" id="asof"></div>
+  <h2>Best to invest</h2>
+  <div class="card" id="best"></div>
+  <h2>Worst to invest</h2>
+  <div class="card" id="worst"></div>
+  <h2>Your checks</h2>
+  <div class="card" id="mine"></div>
+  <h2>Your data</h2>
+  <div class="row"><button class="btn" id="bk">Save a backup</button><button class="btn" id="rs">Restore</button></div>
+  <div class="row" style="margin-top:10px"><button class="btn s" id="smp"></button></div>
+  <input type="file" id="file" accept=".json,application/json" hidden>
+</section>
+
+<nav>
+  <button data-s="today" class="on">Today</button>
+  <button data-s="history">History</button>
+  <button data-s="numbers">Numbers</button>
+</nav>
+
+<div class="sheet" id="pick">
+  <div class="top"><b id="pickT">Buying or selling?</b><button class="x" id="close">✕</button></div>
+  <div id="pickBody"></div>
+</div>
+
+<div class="sheet" id="res">
+  <div class="top"><span class="mu" id="resT"></span><button class="x" id="done">Done</button></div>
+  <div class="card" id="resBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA_DATE = "Aug 2026";
+const AREAS = [{"n":"E-7","g":"CDA prime","lo":75000,"hi":110000,"h":0,"y":null,"l":"ok","e":1,"k":"4–5","s":58,"r":"Mature, little upside"},{"n":"F-6","g":"CDA prime","lo":75000,"hi":75000,"h":1,"y":12,"l":"ok","e":0,"k":"2–3","s":74,"r":"Up 12% in a year"},{"n":"F-7","g":"CDA prime","lo":70000,"hi":70000,"h":1,"y":9,"l":"ok","e":0,"k":"3–4","s":71,"r":"Mature, little upside"},{"n":"F-8","g":"CDA prime","lo":57000,"hi":57000,"h":1,"y":1,"l":"ok","e":0,"k":"5–6","s":63,"r":"Mature, little upside"},{"n":"F-10","g":"CDA prime","lo":40000,"hi":50000,"h":0,"y":3,"l":"ok","e":0,"k":"8–9","s":65,"r":"Mature, little upside"},{"n":"F-11","g":"CDA prime","lo":40000,"hi":50000,"h":0,"y":12,"l":"ok","e":0,"k":"10–11","s":74,"r":"Up 12% in a year"},{"n":"G-6","g":"CDA prime","lo":40000,"hi":55000,"h":0,"y":null,"l":"ok","e":1,"k":"2–3","s":58,"r":"Mature, little upside"},{"n":"G-7","g":"CDA prime","lo":35000,"hi":50000,"h":0,"y":null,"l":"ok","e":1,"k":"3–4","s":66,"r":"Approved, steady"},{"n":"G-8","g":"CDA prime","lo":40000,"hi":55000,"h":0,"y":null,"l":"ok","e":1,"k":"5–6","s":58,"r":"Mature, little upside"},{"n":"G-9","g":"CDA prime","lo":41000,"hi":41000,"h":1,"y":3,"l":"ok","e":0,"k":"6–7","s":65,"r":"Mature, little upside"},{"n":"G-10","g":"CDA prime","lo":40000,"hi":40000,"h":1,"y":8,"l":"ok","e":0,"k":"8–9","s":70,"r":"Mature, little upside"},{"n":"E-11","g":"CDA prime","lo":30000,"hi":40000,"h":0,"y":7,"l":"verify","e":0,"k":"11–13","s":57,"r":"Approval doubts, slow growth"},{"n":"D-12","g":"CDA prime","lo":29000,"hi":29000,"h":0,"y":7,"l":"ok","e":0,"k":"12–14","s":77,"r":"Approved, steady"},{"n":"G-11","g":"CDA west/south","lo":35000,"hi":45000,"h":0,"y":null,"l":"ok","e":1,"k":"10–11","s":66,"r":"Approved, steady"},{"n":"G-13","g":"CDA west/south","lo":24400,"hi":30000,"h":0,"y":3,"l":"ok","e":0,"k":"14–15","s":73,"r":"Approved, steady"},{"n":"G-14","g":"CDA west/south","lo":15000,"hi":15000,"h":0,"y":8,"l":"ok","e":0,"k":"16–20","s":78,"r":"Approved, steady"},{"n":"G-15","g":"CDA west/south","lo":12000,"hi":16000,"h":0,"y":4,"l":"ok","e":1,"k":"16–20","s":78,"r":"Approved, steady"},{"n":"G-16","g":"CDA west/south","lo":8000,"hi":12000,"h":0,"y":null,"l":"ok","e":1,"k":"18–26","s":74,"r":"Approved, steady"},{"n":"I-8","g":"CDA west/south","lo":35000,"hi":45000,"h":0,"y":null,"l":"ok","e":1,"k":"8–10","s":66,"r":"Approved, steady"},{"n":"I-9 / I-10","g":"CDA west/south","lo":25000,"hi":35000,"h":0,"y":null,"l":"ok","e":1,"k":"10–12","s":66,"r":"Approved, steady"},{"n":"I-11","g":"CDA west/south","lo":20000,"hi":28000,"h":0,"y":null,"l":"verify","e":1,"k":"12–13","s":46,"r":"Approval doubts, slow growth"},{"n":"H-13","g":"CDA west/south","lo":8000,"hi":12000,"h":0,"y":null,"l":"ok","e":1,"k":"14–16","s":74,"r":"Approved, steady"},{"n":"I-12","g":"CDA new","lo":12000,"hi":12000,"h":0,"y":33,"l":"ok","e":0,"k":"14–16","s":100,"r":"Up 33% in a year, approved"},{"n":"I-14","g":"CDA new","lo":12000,"hi":16000,"h":0,"y":null,"l":"ok","e":1,"k":"17–22","s":74,"r":"Approved, steady"},{"n":"I-15","g":"CDA new","lo":7000,"hi":7000,"h":0,"y":17,"l":"ok","e":0,"k":"17–22","s":95,"r":"Up 17% in a year"},{"n":"I-16","g":"CDA new","lo":6000,"hi":8000,"h":0,"y":17,"l":"ok","e":0,"k":"17–22","s":95,"r":"Up 17% in a year"},{"n":"E-12","g":"CDA new","lo":15000,"hi":15000,"h":0,"y":13,"l":"verify","e":0,"k":"13–15","s":63,"r":"Up 13% in a year"},{"n":"D-13","g":"CDA new","lo":8000,"hi":12000,"h":0,"y":null,"l":"verify","e":1,"k":"15–17","s":46,"r":"Approval doubts, slow growth"},{"n":"D-17","g":"CDA new","lo":4900,"hi":6700,"h":0,"y":null,"l":"verify","e":0,"k":"18–26","s":50,"r":"Approval doubts, slow growth"},{"n":"C-14","g":"CDA new","lo":15000,"hi":15000,"h":0,"y":23,"l":"verify","e":0,"k":"18–26","s":73,"r":"Up 23% in a year, approved"},{"n":"C-15","g":"CDA new","lo":7000,"hi":7000,"h":0,"y":13,"l":"verify","e":0,"k":"18–26","s":63,"r":"Up 13% in a year"},{"n":"C-16","g":"CDA new","lo":5000,"hi":5000,"h":0,"y":5,"l":"verify","e":0,"k":"18–26","s":55,"r":"Approval doubts, slow growth"},{"n":"F-14 / F-15 (FGEHA)","g":"CDA new","lo":5000,"hi":5000,"h":0,"y":28,"l":"verify","e":0,"k":"18–26","s":78,"r":"Up 28% in a year, approved"},{"n":"B-17 (MPCHS)","g":"CDA new","lo":6000,"hi":6000,"h":0,"y":25,"l":"ok","e":0,"k":"25–35","s":100,"r":"Up 25% in a year, approved"},{"n":"DHA Phase 1","g":"Gated society","lo":8000,"hi":13400,"h":0,"y":14,"l":"ok","e":0,"k":"22–28","s":92,"r":"Up 14% in a year"},{"n":"DHA Phase 2","g":"Gated society","lo":10000,"hi":14000,"h":0,"y":14,"l":"ok","e":0,"k":"22–28","s":92,"r":"Up 14% in a year"},{"n":"DHA Phase 3","g":"Gated society","lo":3000,"hi":5000,"h":0,"y":null,"l":"verify","e":1,"k":"30–45","s":46,"r":"Approval doubts, slow growth"},{"n":"DHA Phase 4","g":"Gated society","lo":5800,"hi":9300,"h":0,"y":null,"l":"verify","e":0,"k":"30–45","s":50,"r":"Approval doubts, slow growth"},{"n":"DHA Phase 5","g":"Gated society","lo":6000,"hi":8000,"h":0,"y":null,"l":"verify","e":1,"k":"30–45","s":46,"r":"Approval doubts, slow growth"},{"n":"DHA Valley","g":"Gated society","lo":1500,"hi":3000,"h":0,"y":null,"l":"verify","e":1,"k":"30–45","s":46,"r":"Approval doubts, slow growth"},{"n":"Bahria Town Ph 1-6","g":"Gated society","lo":10000,"hi":16000,"h":0,"y":12,"l":"verify","e":1,"k":"20–25","s":58,"r":"Up 12% in a year"},{"n":"Bahria Town Ph 7","g":"Gated society","lo":9000,"hi":14000,"h":0,"y":12,"l":"verify","e":1,"k":"25–30","s":58,"r":"Up 12% in a year"},{"n":"Bahria Town Ph 8","g":"Gated society","lo":4900,"hi":4900,"h":0,"y":12,"l":"verify","e":0,"k":"25–30","s":62,"r":"Up 12% in a year"},{"n":"Bahria Enclave","g":"Gated society","lo":7400,"hi":7400,"h":0,"y":12,"l":"verify","e":0,"k":"18–22","s":62,"r":"Up 12% in a year"},{"n":"Bahria Garden City","g":"Gated society","lo":7000,"hi":10000,"h":0,"y":12,"l":"verify","e":1,"k":"25–30","s":58,"r":"Up 12% in a year"},{"n":"Gulberg (Greens + Residencia)","g":"Gated society","lo":6000,"hi":6000,"h":0,"y":17,"l":"ok","e":0,"k":"18–25","s":95,"r":"Up 17% in a year"},{"n":"PWD Housing","g":"Expressway society","lo":10000,"hi":14000,"h":0,"y":null,"l":"ok","e":1,"k":"15–20","s":74,"r":"Approved, steady"},{"n":"Police Foundation","g":"Expressway society","lo":7000,"hi":10000,"h":0,"y":null,"l":"ok","e":1,"k":"15–20","s":74,"r":"Approved, steady"},{"n":"Soan Garden","g":"Expressway society","lo":7000,"hi":10000,"h":0,"y":null,"l":"ok","e":1,"k":"15–20","s":74,"r":"Approved, steady"},{"n":"CBR Town","g":"Expressway society","lo":7000,"hi":10000,"h":0,"y":null,"l":"ok","e":1,"k":"18–25","s":74,"r":"Approved, steady"},{"n":"Media Town","g":"Expressway society","lo":9000,"hi":13000,"h":0,"y":null,"l":"ok","e":1,"k":"15–20","s":74,"r":"Approved, steady"},{"n":"FECHS","g":"Expressway society","lo":22000,"hi":22000,"h":1,"y":11,"l":"ok","e":0,"k":"15–20","s":81,"r":"Up 11% in a year"},{"n":"Naval Anchorage","g":"Expressway society","lo":6000,"hi":6000,"h":0,"y":null,"l":"ok","e":0,"k":"18–25","s":78,"r":"Approved, steady"},{"n":"Jinnah Garden","g":"Expressway society","lo":4000,"hi":6000,"h":0,"y":null,"l":"verify","e":1,"k":"18–25","s":46,"r":"Approval doubts, slow growth"},{"n":"Park Road","g":"Outskirts / risk","lo":5000,"hi":9000,"h":0,"y":null,"l":"risk","e":1,"k":"11–14","s":6,"r":"Legal or title risk"},{"n":"Chak Shahzad","g":"Outskirts / risk","lo":3000,"hi":7000,"h":0,"y":null,"l":"verify","e":1,"k":"11–14","s":46,"r":"Approval doubts, slow growth"},{"n":"Bani Gala","g":"Outskirts / risk","lo":3000,"hi":6000,"h":0,"y":3,"l":"risk","e":1,"k":"12–15","s":9,"r":"Legal or title risk"},{"n":"Park View City","g":"Outskirts / risk","lo":8000,"hi":8000,"h":0,"y":null,"l":"verify","e":0,"k":"15–20","s":50,"r":"Approval doubts, slow growth"},{"n":"Bhara Kahu / Murree Rd / Lehtrar","g":"Outskirts / risk","lo":1500,"hi":5000,"h":0,"y":null,"l":"risk","e":1,"k":"13–20","s":6,"r":"Legal or title risk"},{"n":"Top City 1","g":"M-2 / airport corridor","lo":6000,"hi":6000,"h":0,"y":11,"l":"verify","e":0,"k":"25–35","s":61,"r":"Up 11% in a year"},{"n":"Faisal Town (F-18)","g":"M-2 / airport corridor","lo":6000,"hi":6000,"h":0,"y":3,"l":"verify","e":0,"k":"25–35","s":53,"r":"Approval doubts, slow growth"},{"n":"Faisal Hills","g":"M-2 / airport corridor","lo":4000,"hi":4000,"h":0,"y":20,"l":"verify","e":0,"k":"40–45","s":70,"r":"Up 20% in a year, approved"},{"n":"Mumtaz City","g":"M-2 / airport corridor","lo":3000,"hi":5000,"h":0,"y":null,"l":"verify","e":1,"k":"25–35","s":46,"r":"Approval doubts, slow growth"},{"n":"Capital Smart City","g":"M-2 / airport corridor","lo":4900,"hi":7100,"h":0,"y":null,"l":"verify","e":0,"k":"38–45","s":50,"r":"Approval doubts, slow growth"},{"n":"Blue World City","g":"M-2 / airport corridor","lo":1300,"hi":2200,"h":0,"y":null,"l":"risk","e":1,"k":"45–55","s":6,"r":"Legal or title risk"},{"n":"Tarnol","g":"M-2 / airport corridor","lo":4000,"hi":4000,"h":0,"y":18,"l":"verify","e":0,"k":"25–35","s":68,"r":"Up 18% in a year"}];
+const KEY = "landcheck.v1";
+const $ = id => document.getElementById(id);
+const DAY = 864e5;
+const byName = Object.fromEntries(AREAS.map(a => [a.n, a]));
+
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.entries))return d}catch(e){}return null}
+let db = load();
+function save(){try{localStorage.setItem(KEY, JSON.stringify(db))}catch(e){toast("Could not save")}}
+
+function money(v){return v>=1e7?(v/1e7).toFixed(v>=1e8?0:1)+" cr":Math.round(v/1e5)+" lakh"}
+function price(a){
+  if(!a.lo) return "No price data";
+  const lo=a.lo*225, hi=a.hi*225;
+  return (lo===hi?money(lo):money(lo)+" – "+money(hi))+" / marla"+(a.h?" (built)":"");
+}
+function verdict(a, mode){
+  const y = a.y!=null ? (a.y>=0?"+":"")+a.y+"% in a year" : "No yearly data";
+  if(mode==="buy"){
+    if(a.l==="risk") return {v:"Avoid",c:"bad",why:"Title or approval problems reported",next:"Walk away, or see a lawyer first",y};
+    if(a.l==="verify") return {v:"Check first",c:"warn",why:"Some files or blocks not approved",next:"Get NOC proof. Check the CDA illegal list.",y};
+    return {v:"Safe area",c:"ok",why:"Approved area. Seller still needs checking.",next:"Verify transfer at the CDA or society office",y};
+  }
+  if(a.l==="risk") return {v:"Sell soon",c:"warn",why:"Legal risk weighs on future value",next:"Take bank transfer or pay order only",y};
+  if((a.y||0)>=10 && a.l==="ok") return {v:"Hold if you can",c:"ok",why:"Still rising fast",next:"If selling, ask the top of the range",y};
+  return {v:"Fair to sell",c:"n",why:"Steady prices here",next:"Take bank transfer or pay order only",y};
+}
+const isRisky = e => e.m==="buy" && byName[e.n] && byName[e.n].l!=="ok";
+function startOfDay(t){const d=new Date(t);d.setHours(0,0,0,0);return +d}
+function toast(t){const el=$("toast");el.textContent=t;el.classList.add("on");setTimeout(()=>el.classList.remove("on"),1600)}
+
+/* ---------- render ---------- */
+function render(){
+  const E = db.entries;
+  $("dodged").textContent = E.filter(e=>isRisky(e)&&e.a==="no").length;
+  const wk = E.filter(e=>e.t>Date.now()-7*DAY).length;
+  const flagged = E.filter(isRisky).length;
+  $("week").textContent = wk+" checks this week · "+flagged+" risky flagged";
+
+  // one follow-up question, next day
+  const today = startOfDay(Date.now());
+  const q = E.filter(e=>(!e.a||(e.a==="wait"&&e.at<today)) && e.t<today).sort((a,b)=>b.t-a.t)[0];
+  $("ask").innerHTML = q ? `<div class="card"><div class="mu">${ago(q.t)}</div>
+    <div style="font-size:20px;margin:4px 0 14px">Did you ${q.m} in ${q.n}?</div>
+    <div class="row"><button class="btn" data-a="yes" data-id="${q.id}">Yes</button><button class="btn" data-a="no" data-id="${q.id}">No</button><button class="btn" data-a="wait" data-id="${q.id}">Not yet</button></div></div>` : "";
+
+  const hasS = E.some(e=>e.s);
+  $("sampleNote").innerHTML = hasS ? `<button class="link" id="clr2">Showing sample week · Clear samples</button>` : "";
+  $("smp").textContent = hasS ? "Clear samples" : "Load samples";
+
+  // history
+  const H = [...E].sort((a,b)=>b.t-a.t);
+  $("hist").innerHTML = H.length ? H.map(e=>{
+    const a=byName[e.n], v=a?verdict(a,e.m):{v:"?",c:""};
+    const out = e.a==="yes"?(e.m==="buy"?"Bought":"Sold"):e.a==="no"?"Didn't":e.a==="wait"?"Not yet":"";
+    return `<div class="it"><div><div>${e.n} <span class="mu">· ${e.m==="buy"?"Buy":"Sell"}</span></div>
+      <div class="mu">${ago(e.t)}${out?" · "+out:""}</div></div><span class="tag ${v.c}">${v.v}</span></div>`;
+  }).join("") : `<div class="mu">No checks yet</div>`;
+
+  // numbers
+  $("asof").textContent = "Prices as of "+DATA_DATE+" · asking prices";
+  const ranked = AREAS.filter(a=>a.lo).sort((a,b)=>b.s-a.s);
+  const li = a => `<div class="it"><div><div>${a.n}</div><div class="mu">${a.r}</div></div><span class="sc">${a.s}</span></div>`;
+  $("best").innerHTML = ranked.slice(0,3).map(li).join("");
+  $("worst").innerHTML = ranked.slice(-3).reverse().map(li).join("");
+  const buys=E.filter(e=>e.m==="buy").length;
+  const yes=E.filter(e=>e.a==="yes").length;
+  $("mine").innerHTML = `<div class="it"><span>Checks</span><span class="sc">${E.length}</span></div>
+    <div class="it"><span>Buy / Sell</span><span class="sc">${buys} / ${E.length-buys}</span></div>
+    <div class="it"><span>Risky flagged</span><span class="sc">${flagged}</span></div>
+    <div class="it"><span>Deals done</span><span class="sc">${yes}</span></div>`;
+}
+function ago(t){
+  const d = Math.round((startOfDay(Date.now())-startOfDay(t))/DAY);
+  return d===0?"Today":d===1?"Yesterday":d+" days ago";
+}
+
+/* ---------- check flow: 2 inputs ---------- */
+let mode=null;
+function openPick(){
+  mode=null;
+  $("pickT").textContent="Buying or selling?";
+  $("pickBody").innerHTML=`<div class="row" style="margin-top:30px"><button class="btn g" style="min-height:96px;font-size:22px" data-m="buy">Buy</button><button class="btn" style="min-height:96px;font-size:22px" data-m="sell">Sell</button></div>`;
+  $("pick").classList.add("on");
+}
+function showAreas(){
+  $("pickT").textContent = mode==="buy"?"Buy where?":"Sell where?";
+  const recent=[...new Set([...db.entries].sort((a,b)=>b.t-a.t).map(e=>e.n))].filter(n=>byName[n]).slice(0,4);
+  const groups={};AREAS.forEach(a=>(groups[a.g]=groups[a.g]||[]).push(a));
+  const btn=a=>`<button data-n="${a.n}">${a.n}<i>${a.lo?money(a.lo*225):"–"}</i></button>`;
+  let h=`<input type="search" id="q" placeholder="Find area" autocomplete="off">`;
+  if(recent.length) h+=`<div class="d">Recent</div><div class="grid">${recent.map(n=>btn(byName[n])).join("")}</div>`;
+  for(const g in groups) h+=`<div class="d" data-g>${g}</div><div class="grid">${groups[g].map(btn).join("")}</div>`;
+  $("pickBody").innerHTML=h;
+  $("q").addEventListener("input",e=>{
+    const s=e.target.value.toLowerCase();
+    $("pickBody").querySelectorAll(".grid button").forEach(b=>b.style.display=b.dataset.n.toLowerCase().includes(s)?"":"none");
+  });
+}
+function check(name){
+  const a=byName[name], v=verdict(a,mode);
+  db.entries.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:Date.now(),n:name,m:mode});
+  save();
+  $("pick").classList.remove("on");
+  $("resT").textContent=(mode==="buy"?"Buy":"Sell")+" · "+name;
+  $("resBody").innerHTML=`<div class="v ${v.c}">${v.v}</div><div class="mu" style="margin-bottom:14px">${v.why}</div>
+    <div class="ln"><b>${price(a)}</b></div>
+    <div class="ln">${v.y}</div>
+    <div class="ln">${a.k} km from Blue Area</div>
+    <div class="ln">Future score <b>${a.s}</b>/100</div>
+    <div class="ln" style="color:var(--${v.c==="bad"?"bad":v.c==="warn"?"warn":"tx"})">→ ${v.next}</div>`;
+  $("res").classList.add("on");
+  render();
+}
+
+/* ---------- backup / restore ---------- */
+async function backup(){
+  const txt=JSON.stringify({app:"landcheck",v:1,saved:new Date().toISOString(),entries:db.entries},null,1);
+  const name="land-check-backup-"+new Date().toISOString().slice(0,10)+".json";
+  const file=new File([txt],name,{type:"application/json"});
+  try{ if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file]});return} }catch(e){if(e.name==="AbortError")return}
+  const a=document.createElement("a");a.href=URL.createObjectURL(file);a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+  toast("Backup saved");
+}
+function restore(f){
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(d.app!=="landcheck"||!Array.isArray(d.entries)) throw 0;
+      const ok=d.entries.filter(e=>e&&e.id&&e.t&&e.n&&(e.m==="buy"||e.m==="sell"));
+      const have=new Set(db.entries.map(e=>e.id));let n=0;
+      ok.forEach(e=>{if(!have.has(e.id)){db.entries.push(e);n++}});
+      save();render();toast(n+" checks restored");
+    }catch(e){toast("Not a Land Check backup")}
+  };
+  r.readAsText(f);
+}
+
+/* ---------- samples ---------- */
+function samples(){
+  const now=Date.now(), at=(d,h)=>startOfDay(now-d*DAY)+h*36e5;
+  const S=[[6,11,"Blue World City","buy","no"],[5,18,"F-11","buy","wait"],[4,13,"Bani Gala","buy","no"],
+    [3,16,"Bahria Town Ph 8","buy","no"],[2,12,"G-13","sell","yes"],[1,19,"I-12","buy",null],[0,9,"DHA Phase 2","buy",null]];
+  S.forEach(([d,h,n,m,a],i)=>db.entries.push({id:"s"+i,s:1,t:at(d,h),n,m,...(a?{a,at:at(d-1,10)}:{})}));
+  save();render();
+}
+
+/* ---------- events ---------- */
+document.querySelector("nav").addEventListener("click",e=>{
+  const s=e.target.dataset.s;if(!s)return;
+  document.querySelectorAll(".scr").forEach(x=>x.classList.toggle("on",x.id===s));
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.s===s));
+  scrollTo(0,0);
+});
+$("go").onclick=openPick;
+$("close").onclick=()=>$("pick").classList.remove("on");
+$("done").onclick=()=>$("res").classList.remove("on");
+$("pickBody").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.m){mode=b.dataset.m;showAreas()}
+  else if(b.dataset.n) check(b.dataset.n);
+});
+document.body.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.a){const x=db.entries.find(e=>e.id===b.dataset.id);x.a=b.dataset.a;x.at=Date.now();save();render();
+    toast(b.dataset.a==="no"&&isRisky(x)?"Dodged. Counted.":"Noted")}
+  if(b.id==="clr2"||b.id==="smp"){
+    if(db.entries.some(e=>e.s)){db.entries=db.entries.filter(e=>!e.s);save();render();toast("Samples cleared")}
+    else samples();
+  }
+});
+$("bk").onclick=backup;
+$("rs").onclick=()=>$("file").click();
+$("file").onchange=e=>{if(e.target.files[0])restore(e.target.files[0]);e.target.value=""};
+
+if(!db){db={entries:[]};samples()} else render();
+if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
