@@ -809,6 +809,7 @@ input[type=search]{width:100%;min-height:48px;border-radius:12px;border:1px soli
 #fmap .top>*{pointer-events:auto}
 #fmapSeg{display:flex;gap:6px}#fmapSeg .btn{min-height:44px;font-size:15px;padding:0 14px}
 #lmap{position:absolute;inset:0;background:var(--bg)}
+#lmap.darktiles .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
 .leaflet-container{font:inherit}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--tx);border-radius:14px}
 [data-t=glass] .leaflet-popup-content-wrapper,[data-t=glass] .leaflet-popup-tip,[data-t=min] .leaflet-popup-content-wrapper,[data-t=min] .leaflet-popup-tip{background:var(--bg)}
@@ -1137,7 +1138,8 @@ function drawFull(){
   if(!LM) return;
   const style=document.documentElement.dataset.t==="day"?"light_all":"dark_all";
   if(style!==tileStyle){ if(LTiles) LM.removeLayer(LTiles);
-    LTiles=L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`,{subdomains:"abcd",maxZoom:19,attribution:'© OpenStreetMap contributors © CARTO'}).addTo(LM); tileStyle=style; }
+    LTiles=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(LM); tileStyle=style; }
+  $("lmap").classList.toggle("darktiles",style!=="light_all");
   if(LLayer) LM.removeLayer(LLayer);
   LLayer=L.layerGroup().addTo(LM);
   const col=c=>cssVar("--"+c);
