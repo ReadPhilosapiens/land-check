@@ -1,6 +1,6 @@
-// Land Check: works offline, always fetches the newest version when online.
-const C = "land-check-v4";
-self.addEventListener("install", e => { e.waitUntil(caches.open(C).then(c => c.addAll(["./", "index.html", "hardening.js", "manifest.json"]))); self.skipWaiting(); });
+// Zameen Rate: works offline, always fetches the newest version when online.
+const C = "land-check-v5";
+self.addEventListener("install", e => { e.waitUntil(caches.open(C).then(c => c.addAll(["./", "index.html", "hardening.js", "manifest.json", "icon-180.png", "icon-192.png", "icon-512.png"]))); self.skipWaiting(); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C).map(k => caches.delete(k))))); self.clients.claim(); });
 self.addEventListener("fetch", e => {
 if (e.request.method !== "GET") return;
