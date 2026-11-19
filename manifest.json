@@ -1,0 +1,10 @@
+{
+  "name": "Land Check",
+  "short_name": "Land Check",
+  "description": "Islamabad land price and scam check",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#262a31",
+  "theme_color": "#262a31"
+}
